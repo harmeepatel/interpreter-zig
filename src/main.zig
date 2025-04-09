@@ -3,8 +3,7 @@ const Scanner = @import("Scanner.zig");
 const print = std.debug.print;
 
 pub fn main() !void {
-    std.debug.print("-------------------------------------------------------------------------------\n", .{});
-    var gpa: std.heap.DebugAllocator(.{}) = .init;
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
     defer _ = gpa.deinit();
 
